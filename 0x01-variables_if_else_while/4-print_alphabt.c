@@ -10,6 +10,11 @@ int main(void)
 
 	while (lower <= 122)
 	{
+		if (lower == 'e' || lower == 'q')
+		{
+			lower++;
+			continue;
+		}
 		putchar(lower++);
 	}
 	putchar('\n');
