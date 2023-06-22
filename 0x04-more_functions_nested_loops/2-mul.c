@@ -1,4 +1,4 @@
-#iclude "main.h"
+#include "main.h"
 /**
  * mul - takes in 2 numbers and multiplies them
  * @a: input integer
