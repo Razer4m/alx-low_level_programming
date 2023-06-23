@@ -7,6 +7,7 @@
 void print_triangle(int size)
 {
 	int h, w; /* height and width */
+	int a;
 
 	if (size <= 0)
 	{
@@ -14,15 +15,15 @@ void print_triangle(int size)
 	}
 	for (h = 0; h < size; h++)
 	{
-		for (w = 1; w < size - h; w++)
+		for (w = size - 1; w > 1; w--)
 		{
 			_putchar(' ');
 		}
-		for (w--; w < size; w++)
+		for (a = 0;  <= h; a++)
 		{
 			_putchar(35);
 		}
+		_putchar('\n');
 	}
-	_putchar('\n');
 }
 
