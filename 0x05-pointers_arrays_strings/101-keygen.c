@@ -7,13 +7,13 @@
  */
 void generate_password(void)
 {
-	char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-	int password_length = 12;
+	const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+	const int password_length = 12, i;
 	char password[password_length + 1];
 
 	srand(time(NULL));
 
-	for (int i = 0; i < password_length; i++)
+	for (i = 0; i < password_length; i++)
 	{
 		int random_index = rand() % (sizeof(charset) - 1);
 
