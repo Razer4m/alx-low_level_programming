@@ -8,9 +8,8 @@
 char *cap_string(char *str)
 {
 	int i = 0;
-	int cap_netxt = 1;
+	int cap_next = 1;
 
-	/* Capitalize first character if it's a letter */
 	while (str[i] != '\0')
 	{
 		if (cap_next && (str[i] >= 'a' && str[i] <= 'z'))
@@ -20,7 +19,6 @@ char *cap_string(char *str)
 		cap_next = 0;
 	while (str[i] != '\0')
 	{
-		/* Check for word separators */
 		if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' ||
 		    str[i] == ',' || str[i] == ';' || str[i] == '.' ||
 		    str[i] == '!' || str[i] == '?' || str[i] == '"' ||
