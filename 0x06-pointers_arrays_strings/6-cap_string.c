@@ -17,8 +17,7 @@ char *cap_string(char *str)
 			str[i] = str[i] ('a' - 'A');
 		}
 		cap_next = 0;
-	while (str[i] != '\0')
-	{
+
 		if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' ||
 		    str[i] == ',' || str[i] == ';' || str[i] == '.' ||
 		    str[i] == '!' || str[i] == '?' || str[i] == '"' ||
