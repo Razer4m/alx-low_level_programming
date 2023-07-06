@@ -22,7 +22,14 @@ int sqrt_helper(int n, int start, int end)
 		}
 		else if (result < n)
 		{
-			return (sqrt_helper(n, mid + 1, end));
+			if ((mid + 1) * (mid + 1) > n)
+			{
+				return (mid);
+			}
+			else
+			{
+				return (sqrt_helper(n, mid + 1, end));
+			}
 		}
 		return (sqrt_helper(n, start, mid - 1));
 	}
