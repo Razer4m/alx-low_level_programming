@@ -52,6 +52,6 @@ int _sqrt_recursion(int n)
 	{
 		return (n);
 	}
-	return (sqrt_helper(n, 1, n));
+	return (sqrt_helper(n, 0, n));
 }
 
