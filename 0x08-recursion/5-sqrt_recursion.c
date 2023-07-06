@@ -12,7 +12,7 @@ int sqrt_helper(int n, int i)
 	{
 		if (i * (n / i) == n)
 		{
-			return (c);
+			return (i);
 		}
 		else
 		{
