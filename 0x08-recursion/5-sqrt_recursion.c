@@ -9,24 +9,24 @@
  */
 int sqrt_helper(int n, int start, int end)
 {
-        int mid, result;
+	int mid, result;
 
-        if (start <= end)
-        {
-                mid = (start + end) / 2;
-                result = mid * mid;
+	if (start <= end)
+	{
+		mid = (start + end) / 2;
+		result = mid * mid;
 
-                if (result == n)
-                {
-                        return (mid);
-                }
-                else if (result < n)
-                {
-                        return (sqrt_helper(n, mid + 1, end));
-                }
-                return (sqrt_helper(n, start, mid - 1));
-        }
-        return (end);
+		if (result == n)
+		{
+			return (mid);
+		}
+		else if (result < n)
+		{
+			return (sqrt_helper(n, mid + 1, end));
+		}
+		return (sqrt_helper(n, start, mid - 1));
+	}
+	return (end);
 }
 /**
  * _sqrt_recursion - Returns the square root of n
