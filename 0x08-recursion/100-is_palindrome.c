@@ -24,7 +24,7 @@ int comparator(char *s, int si, int bi)
 {
 	if (*(s + si) == *(s + bi))
 	{
-		if (si == bi || n1 == bi + 1)
+		if (si == bi || si == bi + 1)
 		{
 			return (1);
 		}
