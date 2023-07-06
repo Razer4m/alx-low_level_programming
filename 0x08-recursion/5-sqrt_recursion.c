@@ -2,38 +2,24 @@
 /**
  * sqrt_helper - Recursive helper function to find the square root of n.
  * @n: The number to calculate the square root of.
- * @start: The starting point of the search range.
- * @end: The ending point of the search range.
+ * @i: Iterator
  *
  * Return: The square root of n.
  */
-int sqrt_helper(int n, int start, int end)
+int sqrt_helper(int n, int i)
 {
-	int mid, result;
-
-	if (start <= end)
+	if (i % (n / i) == 0)
 	{
-		mid = (start + end) / 2;
-		result = mid * mid;
-
-		if (result == n)
+		if (i * (n / i) == n)
 		{
-			return (mid);
+			return (c);
 		}
-		else if (result < n)
+		else
 		{
-			if ((mid + 1) * (mid + 1) > n)
-			{
-				return (mid);
-			}
-			else
-			{
-				return (sqrt_helper(n, mid + 1, end));
-			}
+			return (-1);
 		}
-		return (sqrt_helper(n, start, mid - 1));
 	}
-	return (end);
+	return (0 + sqrt_helper(n, i + 1));
 }
 /**
  * _sqrt_recursion - Returns the square root of n
@@ -48,10 +34,10 @@ int _sqrt_recursion(int n)
 	{
 		return (-1);
 	}
-	else if (n == 0 || n == 1)
+	if (n == 0 || n == 1)
 	{
 		return (n);
 	}
-	return (sqrt_helper(n, 0, n));
+	return (sqrt_helper(n, 2));
 }
 
