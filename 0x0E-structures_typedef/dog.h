@@ -1,7 +1,7 @@
 #ifndef DOG_H_
 #define DOG_H_
 
-#typedef struct dog dog_t;
+typedef struct dog dog_t;
 
 /**
  * struct dog - Stores doc information
