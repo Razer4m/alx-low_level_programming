@@ -12,18 +12,26 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	va_list args;
 	unsigned int i;
+	int num;
 
 	va_start(args, n);
 
 	for (i = 0; i < n; i++)
 	{
-		_putchar(va_arg(args, int));
-	}
-	if (separator != NULL && i < n - 1)
-	{
-		_putchar(separator);
+		num = va_arg(args, int);
+		while (n != 0)
+		{
+			_putchar(num % 10 + '0');
+		}
+		if (separator != NULL && i < n - 1)
+		{
+			while (*separator != '\0')
+			{
+				_putchar(*separator);
+				separator++;
+			}
+		}
 	}
 	va_end(args);
 	_putchar('\n');
 }
-
