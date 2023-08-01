@@ -5,7 +5,7 @@
  * @index: of the node, string at 0
  * Return: Pointer to the nth node. Null if node doesnt esxist
  */
-listint_t *get_nodeint_at_index(listint *head, unsigned int index)
+listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
 	listint_t *c = head;
 	unsigned int counter = 0;
