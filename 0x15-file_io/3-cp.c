@@ -34,14 +34,14 @@ int main(int argc, char *argv[])
 	{
 		error_printer("Error: Can't read from file %s\n", argv[1], 98);
 	}
-	fd_to = open(argv[2], O_WRONLY | O_CREATE | O_TRUNC, 0664);
+	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd_to == -1)
 	{
 		error_printer("Error: Can't write to %s\n", argv[2], 99);
 	}
 	while ((bytes_r = read(fd_from, buf, BUF_SIZE)) > 0)
 	{
-		bytes_w = write(fd_to, buffer, bytes_r);
+		bytes_w = write(fd_to, buf, bytes_r);
 		if (bytes_w == -1)
 		{
 			error_printer("Error: Can't write to %s\n", argv[2], 99);
@@ -53,11 +53,13 @@ int main(int argc, char *argv[])
 	}
 	if (close(fd_from) == -1)
 	{
-		error_printer("Error: Can't close fd %d\n", fd_from, 100);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
+		exit(100);
 	}
 	if (close(fd_to) == -1)
 	{
-		error_printer("Error: Can't close fd %d\n", fd_to, 100);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
+		exit(100);
 	}
 	return (0);
 }
