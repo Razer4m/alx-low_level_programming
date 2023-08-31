@@ -21,7 +21,7 @@ void print_binary(unsigned long int n)
 			f = 1;
 			_putchar('1');
 		}
-		else if(f)
+		else if (f)
 		{
 			_putchar('0');
 		}
