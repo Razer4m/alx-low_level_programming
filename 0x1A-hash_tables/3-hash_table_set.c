@@ -19,7 +19,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	index = hash_djb2((const unsigned char *)key) % ht->size;
 
 	current = ht->array[index];
-       
+
 	while (current != NULL)
 	{
 		if (strcmp(current->key, key) == 0)
@@ -35,7 +35,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		current = current->next;
 	}
 	new_node = create_node(key, value);
-	
+
 	if (new_node == NULL)
 	{
 		return (0);
@@ -43,7 +43,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	new_node->next = ht->array[index];
 	ht->array[index] = new_node;
-	
+
 	return (1);
 }
 /**
@@ -68,7 +68,7 @@ hash_node_t *create_node(const char *key, const char *value)
 		free(new_node);
 		return (NULL);
 	}
-	
+
 	new_node->value = strdup(value);
 	if (new_node->value == NULL)
 	{
@@ -79,4 +79,4 @@ hash_node_t *create_node(const char *key, const char *value)
 	}
 	new_node->next = NULL;
 	return (new_node);
-}    
+}
