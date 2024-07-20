@@ -48,4 +48,6 @@ typedef struct skiplist_s
 	struct skiplist_s *express;
 } skiplist_t;
 
+listint_t *jump_list(listint_t *list, size_t size, int value);
+
 #endif
