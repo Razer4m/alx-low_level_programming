@@ -10,60 +10,36 @@
  */
 skiplist_t *linear_skip(skiplist_t *list, int value)
 {
-	skiplist_t *express = list, *current = list;
-	size_t step, prev_index;
+	skiplist_t *current, *last;
 
 	if (list == NULL)
 		return (NULL);
 
-	step = sqrt_list_size(list);
+	current = list;
 
-	while (express && express->next && express->n < value)
+	while (current->express && current->express->n < value)
 	{
-		prev_index = express->index;
-		current = express;
-
-		printf("Value checked at index [%lu] = [%d]\n", express->index, express->n);
-
-		express = express->express;
+		printf("Value checked at index [%lu] = [%d]\n",
+				current->express->index, current->express->n);
+		current = current->express;
 	}
-	if (express)
-	{
-		printf("Value found between indexes [%lu] and [%lu]\n",
-				prev_index, express->index);
-	}
-	else
-	{
-		printf("Value found between indexes [%lu] and [%lu]\n",
-				prev_index, express ? express->index : prev_index);
-	}
-	while (current && current->index <= (express ? express->index : prev_index))
-	{
-		printf("Value checked at index [%lu] = [%d]\n", current->index, current->n);
+	last = current;
 
-		if (current->n == value)
-			return (current);
-		current = current->next;
+	if (current->express == NULL)
+	{
+		while (current->next)
+			current = current->next;
+	}
+	printf("Value found between indexes [%lu] and [%lu]\n",
+			last->index, current->index);
+
+	while (last && last != current->next)
+	{
+		printf("Value checked at index [%lu] = [%d]\n",
+				last->index, last->n);
+		if (last->n == value)
+			return (last);
+		last = last->next;
 	}
 	return (NULL);
-}
-
-/**
- * sqrt_list_size - computes the step size based on the list size
- *
- * @list: pointer to the head of the skip list
- *
- * Return: step size based on the square root of the list size
- */
-size_t sqrt_list_size(skiplist_t *list)
-{
-	size_t size = 0;
-	skiplist_t *temp = list;
-
-	while (temp)
-	{
-		size++;
-		temp = temp->next;
-	}
-	return (size > 0 ? sqrt(size) : 1);
 }
